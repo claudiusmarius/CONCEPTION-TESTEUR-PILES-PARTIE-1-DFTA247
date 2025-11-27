@@ -91,3 +91,62 @@ Le résultat est affiché sur la barrette 3.
 | 20  | Bleu             | Vvide > 1,65 V                | Surtension (pile lithium 1,5V régulée) |
 | 20  | Rouge clignotant | Vbat < 50 mV ou inversion     | Pile absente ou inversée               |
 | 20  | Rouge fixe       | Fin de l’alarme surtension    | —                                      |
+
+🔌 Alimentation & protections
+
+Le testeur peut être alimenté via :
+
+USB-C
+
+Micro-USB
+
+Jack DC
+
+Power bank
+
+Alimentation de labo
+
+Toutes les sources passent par des diodes Schottky avant d’attaquer le régulateur 3,3 V.
+
+Protection inversion pile
+
+Deux niveaux :
+
+Protection analogique A1
+
+R1 = 1 kΩ
+
+D1 = diode Schottky montée en inverse
+→ limite la tension à environ –0,15 V (safe)
+
+Détection matérielle via MOSFET canal P
+→ LED inversion de polarité
+
+🖥️ Affichage NeoPixel & logique 3,3 V → 5 V
+
+Le signal DATA du WS2812B est envoyé directement depuis PB0 en 3,3 V, sans convertisseur de niveau.
+Pourquoi cela fonctionne ?
+
+Les WS2812B reconnaissent un “1” logique dès ~0,7 × VDD
+
+Beaucoup de modules acceptent sans problème 3,2–3,4 V en entrée
+
+Le câble est très court → pas de pertes
+
+Le test réel confirme un fonctionnement 100 % fiable
+
+Une résistance série R2 = 220 Ω protège le premier pixel, conformément aux recommandations du fabricant.
+
+Des condensateurs de 100 nF seront placés proche de chaque LED sur le PCB final.
+
+🔊 Buzzer
+
+Simple signalisation sonore :
+
+1 bip → test à vide
+
+2 bips → test en charge
+
+3 bips → diagnostic final
+
+3 bips rapides → surintensité
