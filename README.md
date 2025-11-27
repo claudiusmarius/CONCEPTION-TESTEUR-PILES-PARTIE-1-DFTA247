@@ -71,3 +71,23 @@ Affichage (Barrette 2) :
 | 10  | Vert    | Bonne                        |
 | 12  | Vert    | Tension stable               |
 | 12  | Bleu    | Instable                     |
+
+Surintensité (>0,20 A) → alarme immédiate rouge + 3 bips + arrêt du test.
+
+3. Diagnostic final : ΔV + cohérence
+
+Le diagnostic final compare la tension à vide et la tension en charge :
+
+ΔV = Vvide – Vcharge
+
+Il applique une logique stricte pour éviter les incohérences.
+Le résultat est affiché sur la barrette 3.
+
+| LED | Couleur          | Condition                     | Signification                          |
+| --- | ---------------- | ----------------------------- | -------------------------------------- |
+| 18  | Vert             | NV = 2 & NC = 2 & ΔV < 0.25 V | Pile excellente                        |
+| 17  | Orange           | NV > 0 & NC > 0 & ΔV < 0.30 V | Pile correcte                          |
+| 16  | Rouge            | Sinon                         | Pile mauvaise / incohérente            |
+| 20  | Bleu             | Vvide > 1,65 V                | Surtension (pile lithium 1,5V régulée) |
+| 20  | Rouge clignotant | Vbat < 50 mV ou inversion     | Pile absente ou inversée               |
+| 20  | Rouge fixe       | Fin de l’alarme surtension    | —                                      |
