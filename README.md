@@ -150,3 +150,102 @@ Simple signalisation sonore :
 3 bips → diagnostic final
 
 3 bips rapides → surintensité
+
+🛡️ Protection avancée & sécurité
+
+Le code protège contre :
+
+inversion de polarité
+
+pile absente
+
+surtension (>1,65 V)
+
+instabilité lecture
+
+surintensité
+
+incohérences entre tension à vide et en charge
+
+ΔV trop important
+
+🧠 Description du code
+
+Le programme est écrit en mode one-shot :
+tout est exécuté dans setup(), et loop() reste vide.
+
+Fonctions principales :
+
+readADC_stable() → double lecture pour stabiliser l’ADC
+
+mesurerStabilite() → 6 mesures + analyse min/max
+
+lireVBAT() → conversion analogique → tension en volts
+
+classerPile() → renvoie 0 / 1 / 2 selon les seuils
+
+bipBuzzer() → signal sonore configurable
+
+Toutes les phases du test sont clairement commentées.
+
+📏 Seuils par défaut
+
+À vide :
+
+< 1,10 V → faible
+
+< 1,36 V → moyenne
+
+≥ 1,36 V → bonne
+
+En charge : mêmes seuils (modifiable facilement).
+
+Diagnostic ΔV :
+
+ΔV < 0,25 V + NV=2 + NC=2 → excellent
+
+ΔV < 0,30 V + NV>0 + NC>0 → correct
+
+Sinon → mauvais
+
+📐 PCB
+
+Le PCB final comportera :
+
+3 × 4 LED NeoPixel
+
+condensateurs 100 nF proches des LED
+
+régulateur LDO MCP1700
+
+protections contre inversion
+
+trois entrées d’alimentation
+
+RSENSE 2,2 Ω
+
+potentiomètre de réglage du courant
+
+retour du signal RESET via Q4
+
+connecteur pile AA/AAA
+
+Une vidéo spécifique montrera la conception et la fabrication du PCB.
+
+📦 Contenu du dépôt
+
+/schematics → schéma complet
+
+/pcb → fichiers KiCad (à venir)
+
+/code → sources Arduino (version one-shot)
+
+/doc → tableaux, explications, ressources
+
+README.md → ce document
+
+📣 Licence
+
+Projet open-source : libre d’usage, modification et amélioration.
+
+
