@@ -55,3 +55,19 @@ Affichage (Barrette 1) :
 | 4   | Vert    | Mesure stable    |
 | 4   | Bleu    | Mesure instable  |
 
+2. Test en charge
+
+La charge est appliquée via un MOSFET canal N piloté par PB1.
+La chute de tension dans la résistance RSENSE = 2,2 Ω permet de mesurer le courant réel.
+
+Mesure effectuée après stabilisation, puis coupure de la charge.
+
+Affichage (Barrette 2) :
+
+| LED | Couleur | Signification                |
+| --- | ------- | ---------------------------- |
+| 8   | Rouge   | Pile trop faible sous charge |
+| 9   | Orange  | Moyenne                      |
+| 10  | Vert    | Bonne                        |
+| 12  | Vert    | Tension stable               |
+| 12  | Bleu    | Instable                     |
