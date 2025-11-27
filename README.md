@@ -38,3 +38,20 @@ Code simple à adapter, avec seuils facilement modifiables
 Très faible consommation
 
 Test unique → fiable et reproductible
+
+📡 Principe de fonctionnement
+1. Test à vide
+
+Le microcontrôleur mesure la tension directement sur la borne positive de la pile.
+Une série de lectures est effectuée pour vérifier la stabilité du signal.
+
+Affichage (Barrette 1) :
+
+| LED | Couleur | Signification    |
+| --- | ------- | ---------------- |
+| 0   | Rouge   | Pile très faible |
+| 1   | Orange  | Pile faible      |
+| 2   | Vert    | Pile correcte    |
+| 4   | Vert    | Mesure stable    |
+| 4   | Bleu    | Mesure instable  |
+
