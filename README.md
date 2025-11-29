@@ -2,7 +2,6 @@
 Testeur
 
 Testeur de piles AA/AAA intelligent — ATtiny85
-
 Ce projet propose un testeur de piles AA / AAA basé sur un ATtiny85, capable d’évaluer une pile selon trois critères :
 
 Tension à vide
