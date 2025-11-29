@@ -5,9 +5,7 @@ Testeur de piles AA/AAA intelligent — ATtiny85
 Ce projet propose un testeur de piles AA / AAA basé sur un ATtiny85, capable d’évaluer une pile selon trois critères :
 
 Tension à vide
-
 Tension sous charge (≈100 mA)
-
 Analyse dynamique : stabilité + ΔV
 
 Il détecte aussi les inversions de polarité, les surtensions et les anomalies de courant.
@@ -19,28 +17,18 @@ Il fonctionne en mode one-shot : un seul test est effectué, sans boucle.
 📘 Caractéristiques principales
 
 ATtiny85 alimenté en 3,3 V via LDO MCP1700
-
 Test complet en 3 phases : à vide, en charge, diagnostic final
-
 Détection d’inversion de polarité par hardware
-
 Protection renforcée des entrées analogiques
-
 Détection de surintensité
-
 3 barrettes de LED adressables pour un affichage clair
-
 Signalisation par buzzer (1, 2 ou 3 bips selon les étapes)
-
 Code simple à adapter, avec seuils facilement modifiables
-
-Très faible consommation
-
+Faible consommation
 Test unique → fiable et reproductible
 
 📡 Principe de fonctionnement
 1. Test à vide
-
 Le microcontrôleur mesure la tension directement sur la borne positive de la pile.
 Une série de lectures est effectuée pour vérifier la stabilité du signal.
 
@@ -55,7 +43,6 @@ Affichage (Barrette 1) :
 | 4   | Bleu    | Mesure instable  |
 
 2. Test en charge
-
 La charge est appliquée via un MOSFET canal N piloté par PB1.
 La chute de tension dans la résistance RSENSE = 2,2 Ω permet de mesurer le courant réel.
 
@@ -94,15 +81,10 @@ Le résultat est affiché sur la barrette 3.
 🔌 Alimentation & protections
 
 Le testeur peut être alimenté via :
-
 USB-C
-
 Micro-USB
-
 Jack DC
-
 Power bank
-
 Alimentation de labo
 
 Toutes les sources passent par des diodes Schottky avant d’attaquer le régulateur 3,3 V.
@@ -110,11 +92,8 @@ Toutes les sources passent par des diodes Schottky avant d’attaquer le régula
 Protection inversion pile
 
 Deux niveaux :
-
 Protection analogique A1
-
 R1 = 1 kΩ
-
 D1 = diode Schottky montée en inverse
 → limite la tension à environ –0,15 V (safe)
 
@@ -125,47 +104,30 @@ Détection matérielle via MOSFET canal P
 
 Le signal DATA du WS2812B est envoyé directement depuis PB0 en 3,3 V, sans convertisseur de niveau.
 Pourquoi cela fonctionne ?
-
 Les WS2812B reconnaissent un “1” logique dès ~0,7 × VDD
-
 Beaucoup de modules acceptent sans problème 3,2–3,4 V en entrée
-
 Le câble est très court → pas de pertes
-
 Le test réel confirme un fonctionnement 100 % fiable
-
 Une résistance série R2 = 220 Ω protège le premier pixel, conformément aux recommandations du fabricant.
-
 Des condensateurs de 100 nF seront placés proche de chaque LED sur le PCB final.
 
 🔊 Buzzer
 
 Simple signalisation sonore :
-
 1 bip → test à vide
-
 2 bips → test en charge
-
 3 bips → diagnostic final
-
 3 bips rapides → surintensité
 
 🛡️ Protection avancée & sécurité
 
 Le code protège contre :
-
 inversion de polarité
-
 pile absente
-
 surtension (>1,65 V)
-
 instabilité lecture
-
 surintensité
-
 incohérences entre tension à vide et en charge
-
 ΔV trop important
 
 🧠 Description du code
@@ -174,17 +136,11 @@ Le programme est écrit en mode one-shot :
 tout est exécuté dans setup(), et loop() reste vide.
 
 Fonctions principales :
-
 readADC_stable() → double lecture pour stabiliser l’ADC
-
 mesurerStabilite() → 6 mesures + analyse min/max
-
 lireVBAT() → conversion analogique → tension en volts
-
 classerPile() → renvoie 0 / 1 / 2 selon les seuils
-
 bipBuzzer() → signal sonore configurable
-
 Toutes les phases du test sont clairement commentées.
 
 📏 Seuils par défaut
@@ -192,9 +148,7 @@ Toutes les phases du test sont clairement commentées.
 À vide :
 
 < 1,10 V → faible
-
 < 1,36 V → moyenne
-
 ≥ 1,36 V → bonne
 
 En charge : mêmes seuils (modifiable facilement).
@@ -202,46 +156,13 @@ En charge : mêmes seuils (modifiable facilement).
 Diagnostic ΔV :
 
 ΔV < 0,25 V + NV=2 + NC=2 → excellent
-
 ΔV < 0,30 V + NV>0 + NC>0 → correct
-
 Sinon → mauvais
 
-📐 PCB
-
-Le PCB final comportera :
-
-3 × 4 LED NeoPixel
-
-condensateurs 100 nF proches des LED
-
-régulateur LDO MCP1700
-
-protections contre inversion
-
-trois entrées d’alimentation
-
-RSENSE 2,2 Ω
-
-potentiomètre de réglage du courant
-
-retour du signal RESET via Q4
-
-connecteur pile AA/AAA
 
 Une vidéo spécifique montrera la conception et la fabrication du PCB.
 
-📦 Contenu du dépôt
 
-/schematics → schéma complet
-
-/pcb → fichiers KiCad (à venir)
-
-/code → sources Arduino (version one-shot)
-
-/doc → tableaux, explications, ressources
-
-README.md → ce document
 
 📣 Licence
 
