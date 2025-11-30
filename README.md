@@ -43,6 +43,7 @@ Affichage (Barrette 1) :
 | 4   | Bleu    | Mesure instable  |
 
 2. Test en charge
+   
 La charge est appliquée grâce à un MOSFET de canal N piloté par le port PB1.
 La chute de tension dans la résistance RSENSE = 2,2 Ω permet de mesurer le courant réel.
 
