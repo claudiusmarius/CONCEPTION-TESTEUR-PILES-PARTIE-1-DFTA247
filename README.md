@@ -62,7 +62,9 @@ Affichage (Barrette 2) :
 
 Surintensité (>0,20 A) → alarme immédiate rouge + 3 bips + arrêt du test.
 
-3. Diagnostic final : ΔV + cohérence
+3. Diagnostic final :
+
+ΔV + cohérence
 
 Le diagnostic final compare la tension à vide et la tension en charge :
 
