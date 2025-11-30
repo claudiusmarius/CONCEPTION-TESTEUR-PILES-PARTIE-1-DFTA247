@@ -85,10 +85,15 @@ Le résultat est affiché sur la barrette 3.
 🔌 Alimentation & protections
 
 Le testeur peut être alimenté via :
-USB-C
-Micro-USB
-Jack DC
-Power bank
+
+USB-C,
+
+Micro-USB,
+
+Jack DC,
+
+Power bank,
+
 Alimentation de labo
 
 Toutes les sources passent par des diodes Schottky avant d’attaquer le régulateur 3,3 V.
@@ -96,12 +101,17 @@ Toutes les sources passent par des diodes Schottky avant d’attaquer le régula
 Protection inversion pile
 
 Deux niveaux :
+
 Protection analogique A1
+
 R1 = 1 kΩ
+
 D1 = diode Schottky montée en inverse
+
 → limite la tension à environ –0,15 V (safe)
 
 Détection matérielle via MOSFET canal P
+
 → LED inversion de polarité
 
 🖥️ Affichage NeoPixel & logique 3,3 V → 5 V
