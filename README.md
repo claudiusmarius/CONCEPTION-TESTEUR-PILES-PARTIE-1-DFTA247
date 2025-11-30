@@ -170,7 +170,9 @@ Toutes les phases du test sont clairement commentées.
 À vide :
 
 < 1,10 V → faible
+
 < 1,36 V → moyenne
+
 ≥ 1,36 V → bonne
 
 En charge : mêmes seuils (modifiable facilement).
@@ -178,7 +180,9 @@ En charge : mêmes seuils (modifiable facilement).
 Diagnostic ΔV :
 
 ΔV < 0,25 V + NV=2 + NC=2 → excellent
+
 ΔV < 0,30 V + NV>0 + NC>0 → correct
+
 Sinon → mauvais
 
 
