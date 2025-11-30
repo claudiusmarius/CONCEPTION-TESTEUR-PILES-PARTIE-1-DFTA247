@@ -50,7 +50,7 @@ Mesure effectuée après stabilisation, puis coupure de la charge.
 
 Affichage (Barrette 2) :
 
-| LED | Couleur | Signification                |
+| LEDs | Couleur | Signification                |
 | --- | ------- | ---------------------------- |
 | 8   | Rouge   | Pile trop faible sous charge |
 | 9   | Orange  | Moyenne                      |
@@ -69,7 +69,7 @@ Le diagnostic final compare la tension à vide et la tension en charge :
 Il applique une logique stricte pour éviter les incohérences.
 Le résultat est affiché sur la barrette 3.
 
-| LED | Couleur          | Condition                     | Signification                          |
+| LEDs | Couleur          | Condition                     | Signification                          |
 | --- | ---------------- | ----------------------------- | -------------------------------------- |
 | 18  | Vert             | NV = 2 & NC = 2 & ΔV < 0.25 V | Pile excellente                        |
 | 17  | Orange           | NV > 0 & NC > 0 & ΔV < 0.30 V | Pile correcte                          |
