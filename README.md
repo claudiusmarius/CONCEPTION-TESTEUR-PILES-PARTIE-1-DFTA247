@@ -34,7 +34,7 @@ Une série de mesures est effectuée pour vérifier la stabilité du signal.
 
 Affichage (Barrette 1) :
 
-| LED | Couleur | Signification    |
+| LEDs | Couleur | Signification    |
 | --- | ------- | ---------------- |
 | 0   | Rouge   | Pile très faible |
 | 1   | Orange  | Pile faible      |
