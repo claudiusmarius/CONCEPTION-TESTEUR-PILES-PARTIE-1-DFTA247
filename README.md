@@ -29,6 +29,7 @@ Test unique → fiable et reproductible
 
 📡 Principe de fonctionnement
 1. Test à vide
+   
 Le microcontrôleur mesure la tension directement sur la borne positive de la pile.
 Une série de mesures est effectuée pour vérifier la stabilité du signal.
 
