@@ -118,12 +118,19 @@ Détection matérielle via MOSFET canal P
 🖥️ Affichage NeoPixel & logique 3,3 V → 5 V
 
 Le signal DATA du WS2812B est envoyé directement depuis PB0 en 3,3 V, sans convertisseur de niveau.
+
 Pourquoi cela fonctionne ?
+
 Les WS2812B reconnaissent un “1” logique dès ~0,7 × VDD
+
 Beaucoup de modules acceptent sans problème 3,2–3,4 V en entrée
+
 Le câble est très court → pas de pertes
+
 Le test réel confirme un fonctionnement 100 % fiable
+
 Une résistance série R2 = 220 Ω protège le premier pixel, conformément aux recommandations du fabricant.
+
 Des condensateurs de 100 nF seront placés proche de chaque LED sur le PCB final.
 
 🔊 Buzzer
